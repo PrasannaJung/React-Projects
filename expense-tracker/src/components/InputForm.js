@@ -21,7 +21,7 @@ const Form = props => {
   };
 
   return (
-    <div className='max-w-xl bg-slate-900 p-6 ml-4 rounded-md mb-4 flex-1'>
+    <div className='max-w-xl bg-slate-900 p-6 ml-4 rounded-md mb-4'>
       <form
         onSubmit={formSubmitHandler}
         className='grid grid-cols-2 gap-6 justify-items-start text-white'

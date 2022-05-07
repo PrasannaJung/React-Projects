@@ -1,15 +1,17 @@
 import React from 'react';
+import ExpensesList from './components/ExpensesList';
 import InputForm from './components/InputForm';
 import Money from './components/Money';
 
 function App() {
   return (
-    <>
-      <div className='bg-slate-100 py-3 flex'>
-        <InputForm className='flex-1' />
-        <Money className='flex-1' />
+    <main className='flex items-start gap-3 mt-4'>
+      <div className='bg-slate-300 p-3 rounded-sm'>
+        <InputForm />
+        <Money />
       </div>
-    </>
+      <ExpensesList />
+    </main>
   );
 }
 
