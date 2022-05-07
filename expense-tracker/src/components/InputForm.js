@@ -18,6 +18,18 @@ const Form = props => {
 
   const formSubmitHandler = e => {
     e.preventDefault();
+
+    const newExpense = {
+      expense: enteredTitle,
+      expenseDate: enteredDate,
+      amount: enteredAmount,
+    };
+
+    console.log(newExpense);
+    props.onAddingExpense(newExpense);
+    setEnteredAmount('');
+    setEnteredDate('');
+    setEnteredTitle('');
   };
 
   return (
