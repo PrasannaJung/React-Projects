@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 const Form = props => {
+  const [formValidity, setFormValidity] = useState(false);
+
   const [enteredTitle, setEnteredTitle] = useState('');
   const titleChangeHandler = e => {
     setEnteredTitle(e.target.value);
@@ -19,6 +21,16 @@ const Form = props => {
   const formSubmitHandler = e => {
     e.preventDefault();
 
+    if (
+      enteredTitle.trim().length === 0 ||
+      enteredAmount.trim().length === 0 ||
+      enteredDate === undefined
+    ) {
+      setFormValidity(false);
+    } else {
+      setFormValidity(true);
+    }
+
     const newExpense = {
       expense: enteredTitle,
       expenseDate: enteredDate,
@@ -26,7 +38,9 @@ const Form = props => {
     };
 
     console.log(newExpense);
-    props.onAddingExpense(newExpense);
+    if (formValidity) {
+      props.onAddingExpense(newExpense);
+    }
     setEnteredAmount('');
     setEnteredDate('');
     setEnteredTitle('');
