@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Form = props => {
-  const [formValidity, setFormValidity] = useState(false);
+  const [formValidity, setFormValidity] = useState(true);
 
   const [enteredTitle, setEnteredTitle] = useState('');
   const titleChangeHandler = e => {
@@ -27,8 +27,7 @@ const Form = props => {
       enteredDate === undefined
     ) {
       setFormValidity(false);
-    } else {
-      setFormValidity(true);
+      return;
     }
 
     const newExpense = {
@@ -38,9 +37,9 @@ const Form = props => {
     };
 
     console.log(newExpense);
-    if (formValidity) {
-      props.onAddingExpense(newExpense);
-    }
+
+    props.onAddingExpense(newExpense);
+
     setEnteredAmount('');
     setEnteredDate('');
     setEnteredTitle('');
