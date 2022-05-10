@@ -3,6 +3,10 @@ import React from 'react';
 const ExpensesList = props => {
   return (
     <div className='bg-slate-900 flex-1 p-3 rounded-sm text-white'>
+      {!props.myExpenses.length && (
+        <h1>No Expenses. Add something via the input form!!</h1>
+      )}
+
       <ul className='flex flex-col gap-4'>
         {props.myExpenses.map(expense => {
           return (
