@@ -1,6 +1,6 @@
 import React from 'react';
 import Tour from './Tour';
-const Tours = props => {
+const Tours = ({ tours, onDelete }) => {
   return (
     <section>
       <div className='title'>
@@ -8,8 +8,8 @@ const Tours = props => {
         <div className='underline'></div>
       </div>
       <div>
-        {props.tours.map(tour => {
-          return <Tour key={tour.id} {...tour} />;
+        {tours.map(tour => {
+          return <Tour key={tour.id} {...tour} onDelete={onDelete} />;
         })}
       </div>
     </section>
