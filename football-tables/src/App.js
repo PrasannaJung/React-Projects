@@ -5,6 +5,11 @@ import Table from './components/Table';
 
 const App = () => {
   const [leagueTable, setLeagueTable] = useState([]);
+  const [league, setLeague] = useState('premierleague');
+
+  const getSelectedLeague = league => {
+    setLeague(league);
+  };
 
   const options = {
     method: 'GET',
@@ -15,7 +20,7 @@ const App = () => {
   };
 
   const getTable = async () => {
-    fetch('https://football98.p.rapidapi.com/premierleague/table', options)
+    fetch(`https://football98.p.rapidapi.com/${league}/table`, options)
       .then(response => response.json())
       .then(response => {
         console.log(response);
@@ -26,11 +31,11 @@ const App = () => {
 
   useEffect(() => {
     getTable();
-  }, []);
+  }, [league]);
 
   return (
     <>
-      <Selection />
+      <Selection getLeague={getSelectedLeague} />
       <Table teams={leagueTable} />
     </>
   );
