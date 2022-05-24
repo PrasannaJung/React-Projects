@@ -9,7 +9,7 @@ const Selection = props => {
   return (
     <header className={styles.header}>
       <h1>Select a league table</h1>
-      <select onChange={selectedLeague}>
+      <select onChange={selectedLeague} className={styles.select}>
         <option value={'pl'}>Premier League</option>
         <option value={'liga'}>Laliga</option>
         <option value={'bundesliga'}>Bundesliga</option>

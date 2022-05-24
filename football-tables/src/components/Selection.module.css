@@ -3,3 +3,14 @@
   align-items: center;
   flex-direction: column;
 }
+
+.select {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: transparent;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
