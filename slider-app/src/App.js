@@ -8,20 +8,30 @@ const App = () => {
   const [index, setIndex] = useState(0);
 
   const showPreviousCard = () => {
-    if (index === 0) {
-      setIndex(people.length - 1);
-      return;
-    }
     setIndex(prevIndex => prevIndex - 1);
   };
 
   const showNextCard = () => {
-    if (index === people.length - 1) {
-      setIndex(0);
-      return;
-    }
     setIndex(prevIndex => prevIndex + 1);
   };
+
+  useEffect(() => {
+    if (index > people.length - 1) {
+      setIndex(0);
+    } else if (index < 0) {
+      setIndex(people.length - 1);
+    }
+  }, [index, people]);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setIndex(index + 1);
+    }, 3000);
+
+    return () => {
+      clearInterval(slideInterval);
+    };
+  }, [index]);
 
   return (
     <section className='section'>
