@@ -2,7 +2,11 @@ import React from 'react';
 import Navigation from './components/Header/Navigation';
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Navigation />
+    </>
+  );
 }
 
 export default App;
