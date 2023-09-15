@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 
 const AllEvents = props => {
   return (
-    <div className='flex w-1/2 mx-auto bg-[#BE5E5E]'>
+    <div className='flex w-1/2 mx-auto'>
       <div className='flex-1 relative'>
         <Image
           src={"/" + props.image}
